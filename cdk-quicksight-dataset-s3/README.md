@@ -1,9 +1,9 @@
 # Building QuickSight Datasets with CDK - S3
-![Image](img/qs_s3_dataset_cdk.png)
+![Image](data/qs_s3_dataset_cdk.png)
 
 This AWS CDK code is a companion for the blog post [Building QuickSight Datasets with CDK - S3](www.aws-blog-de/2021/09/building-quicksight-datasets-with-cdk-s3.html) on how to create Quicksight datasets with CDK using data available in S3.
 
-The project assumes [Python3](https://www.python.org/downloads/) And [CDK@next](https://www.npmjs.com/package/aws-cdk) are available.
+The project assumes [Python3](https://www.python.org/downloads/) and [CDK@next](https://www.npmjs.com/package/aws-cdk) are available.
 
 Create a virtual environment.
 ```bash

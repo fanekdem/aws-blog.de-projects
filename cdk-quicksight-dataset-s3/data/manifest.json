@@ -1,0 +1,17 @@
+{
+    "fileLocations": [
+        {
+            "URIs": [
+                "s3://$BUCKET_NAME/files/titanic.csv"
+            ],
+            "URIPrefixes": [
+                "s3://$BUCKET_NAME/files"
+            ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "CSV",
+        "delimiter": ",",
+        "containsHeader": "true"
+    }
+}
