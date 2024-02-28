@@ -1,0 +1,5 @@
+gymnasium==0.28.1
+ray[train]==2.9.0
+ray[rllib]==2.9.0
+ray[tune]==2.9.0
+#tensorflow==2.13.0 is already available within the docker image
