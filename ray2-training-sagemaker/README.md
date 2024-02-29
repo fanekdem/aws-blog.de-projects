@@ -22,7 +22,7 @@ python -m pip install "sagemaker>=2.208.0"
 
 Update the variable `role` in the script `start_sagemaker_training.py` so that it contains a valid SageMaker execution role from your AWS account.
 ```python
-role = SOME_SAGEMAKER_EXECUTION_ROLE_CREATED_IN_THE_AWS_ACCOUNT
+role = "<SOME_SAGEMAKER_EXECUTION_ROLE_CREATED_IN_THE_AWS_ACCOUNT>"
 ```
 
 Start the SageMaker training job.

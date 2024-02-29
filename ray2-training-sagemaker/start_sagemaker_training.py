@@ -4,7 +4,7 @@ from sagemaker.estimator import Estimator as RLEstimator
 from sagemaker import image_uris
 
 # NOTE: make sure to replace the role with an existing sagemaker execution role within your account
-role = SOME_SAGEMAKER_EXECUTION_ROLE_CREATED_IN_THE_AWS_ACCOUNT
+role = "<SOME_SAGEMAKER_EXECUTION_ROLE_CREATED_IN_THE_AWS_ACCOUNT>"
 
 # Retrieve the required tensorflow container image
 instance_type = "ml.m5.large"
