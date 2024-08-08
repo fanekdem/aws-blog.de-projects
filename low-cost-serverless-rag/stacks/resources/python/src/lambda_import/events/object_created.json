@@ -1,0 +1,38 @@
+{
+   "Records": [
+       {
+           "eventVersion": "2.1",
+           "eventSource": "aws:s3",
+           "awsRegion": "eu-central-1",
+           "eventTime": "2024-06-06T08:13:20.526Z",
+           "eventName": "ObjectCreated:Put",
+           "userIdentity": {
+               "principalId": "AWS:"
+           },
+           "requestParameters": {
+               "sourceIPAddress": ""
+           },
+           "responseElements": {
+               "x-amz-request-id": "",
+               "x-amz-id-2": ""
+           },
+           "s3": {
+               "s3SchemaVersion": "1.0",
+               "configurationId": "YjYwYTRiMTQtNTVmNy00YTRhLWIyMzUtN2FmN2E1MWE1ZTQx",
+               "bucket": {
+                   "name": "rag-rag927e70e8-pqhnq7nmpitl",
+                   "ownerIdentity": {
+                       "principalId": ""
+                   },
+                   "arn": "arn:aws:s3:::rag-rag927e70e8-pqhnq7nmpitl"
+               },
+               "object": {
+                   "key": "input/bedtime-stories.pdf",
+                   "size": 2210509,
+                   "eTag": "6aa6754b2ee7e091bd36ca7bce8b5850",
+                   "sequencer": "0066616FA0731FF210"
+               }
+           }
+       }
+   ]
+}
