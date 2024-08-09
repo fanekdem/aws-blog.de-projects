@@ -96,7 +96,7 @@ In case you are not able to answer a query, you clearly state that you do not kn
 Answer the following query by summarizing information within your context:
 {{{query}}}
 
-You can use these information to answer the query:
+You can use the following information to answer the query:
 {{{documents}}}
 
 """
