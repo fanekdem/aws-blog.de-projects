@@ -1,0 +1,5 @@
+PyMuPDF==1.24.4
+pymupdf4llm==0.0.3
+sqlite-vss==0.1.2
+numpy==2.0.1
+boto3

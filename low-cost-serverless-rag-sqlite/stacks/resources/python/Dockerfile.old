@@ -1,0 +1,57 @@
+# Use a NodeJS 20.x runtime
+FROM public.ecr.aws/lambda/python:3.12
+# FROM public.ecr.aws/amazonlinux/amazonlinux:2
+
+# Copy the function code to the LAMBDA_TASK_ROOT directory
+# This environment variable is provided by the lambda base image
+COPY requirements.txt ${LAMBDA_TASK_ROOT}
+
+RUN python -m pip install -r requirements.txt
+
+RUN echo "hello"
+RUN python --version
+RUN cat /proc/version
+RUN cat /etc/*-release
+# RUN dnf --help
+#RUN dnf remove python3.12.2
+
+
+# RUN yum install openssl openssl11-devel xz-devel git-core gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel make bzip2 autoconf automake libtool bison sqlite sqlite-devel -y
+
+# RUN yum install git tar make -y
+
+# RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+# RUN echo ' ' >> ~/.bash_profile
+# RUN echo '# Pyenv Configuration' >> ~/.bash_profile
+# RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+# RUN echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+# RUN echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+# RUN source ~/.bash_profile && pyenv install 3.12
+# RUN python --version
+
+# RUN
+# RUN LDFLAGS="-L/usr/local/opt/sqlite/lib -L/usr/local/opt/zlib/lib" CPPFLAGS="-I/usr/local/opt/sqlite/include -I/usr/local/opt/zlib/include" PYTHON_CONFIGURE_OPTS="--enable-loadable-sqlite-extensions"
+
+RUN python3 -c "import sqlite3;db=sqlite3.Connection(':memory:');db.enable_load_extension(True), db.load_extension('vss0')"
+
+# RUN python3.12 -c "import sqlite3;db=sqlite3.Connection(':memory:');db.enable_load_extension, db.load_extension"
+RUN which python
+#RUN python3 -c "import sqlite3;db=sqlite3.Connection(':memory:');db.enable_load_extension(True), db.load_extension('vss0')"
+RUN echo "Yes!!!"
+# RUN yum search python3.11
+# RUN yum remove python3.11.9 -y
+# RUN yum install python311 -y
+#RUN dnf reinstall python3.11
+#RUN dnf install python3.11 -y
+
+RUN python --version
+
+
+# RUN yum uninstall python
+
+# RUN python -c "Hello world!"
+
+COPY src ${LAMBDA_TASK_ROOT}/
+# Set the CMD to the function handler
+# CMD [ "lambda_import.index.lambda_handler" ]

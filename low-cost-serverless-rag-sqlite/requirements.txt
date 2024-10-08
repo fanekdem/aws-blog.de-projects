@@ -1,0 +1,9 @@
+# CDK/Infra
+aws-cdk-lib==2.151.0
+constructs>=10.0.0,<11.0.0
+
+# Lambdas
+-r stacks/resources/python/requirements.txt
+
+# Tests
+cfn-lint==1.9.5

@@ -1,0 +1,24 @@
+{
+    "Records": [
+        {
+            "messageId": "aaf9113c-f74f-4338-bdb7-8fdd3725ce16",
+            "receiptHandle": "AQEBHVHBRVfD5ttnAM9Y/0S5z7yutYkdP1nVYlDEFlHWnN2K8E130UXX6tUu0I15Jd2ZlKSuqusheR1r88SdYSzWs5HoJtNCmll8UVhK0bAN5pq/qLBjYdbMclxI6eVDK2zMIZKew+my4/KTWfPxhaWuxldKMiL8oCfGK2bAnYI2nuJnT5YiObuTtnVviQ93E3HwlmemcAFPQTNRwSVQ+Z32tcbDNirsx2BWY0Q7JODZe2qvSWheBnT64GdaC50LXqSB7q0CPVQ+Iltnr2oq8vwVuszWu2vlMsZaVvgNrDabBhhY1f+2NNbdq35cPhn2C/0CM+i2OiKbU0slghoiI46wM+CQ8kpkJ1jiShWCDoV23xw=",
+            "body": "{\"Records\": [{\"messageId\": \"110a96b9-d8ae-472a-9c22-c5cf863bf57b\", \"receiptHandle\": \"AQEBIyAHDw4g0sDY9gJmqD7RExX5OA6lssEyfQNd2djGufXmP5LvVr8sMP6Yqts4w3LBBeIPAitxXWw3baz99cCQ5cno3nyPeIDlpbL/lmNidM/F8hBFhhIjzK9TLTG+IRHoJREb9MOwfwB+H50FejgT0fC+F+kugEGVzXj+FO9TAglYixD6a8zRIdMdI1X/NAnhm0RYShJ8/HHjh3P9Qr1DU0C5sOBuElwWPbymh+zKU/lP+W894tguIDQn8TYRa6g8UkiTMHlb8/hKv3MfvJaJQV3E1xwfGE6t95c+Ih249K8oLfz0+wua0kc2M3kvNvzp9Qc1EQk49MtyiZIHzPuw6Gy/T8TgSZlqBjBPNQULASQWzZaqxo3CNkHj2zAhd2cJ+PaIkgLBNr6Uq2klEZsRSkGF3tArDgvNWhAGfRVIunmyOayHiW8+r12Yr6i1glJqGSVJk1m+7Rf+22GgXJvWtg==\", \"body\": \"{\\\"Records\\\":[{\\\"eventVersion\\\":\\\"2.1\\\",\\\"eventSource\\\":\\\"aws:s3\\\",\\\"awsRegion\\\":\\\"eu-central-1\\\",\\\"eventTime\\\":\\\"2024-09-30T12:38:44.019Z\\\",\\\"eventName\\\":\\\"ObjectCreated:Put\\\",\\\"userIdentity\\\":{\\\"principalId\\\":\\\"AWS:AIDAV6EQBZPBNRCANK4KJ\\\"},\\\"requestParameters\\\":{\\\"sourceIPAddress\\\":\\\"193.218.214.132\\\"},\\\"responseElements\\\":{\\\"x-amz-request-id\\\":\\\"JA2M1J91AY5KPFQ4\\\",\\\"x-amz-id-2\\\":\\\"1n4KVszhsCU/ZcaXc6HwQ0dGNDzzZfA83BTFZwv7fVSCtWMQi35cVCzHRsQyVCzAfSmo0oRZOBFaPMGW59qrakJJk7bCCEOp\\\"},\\\"s3\\\":{\\\"s3SchemaVersion\\\":\\\"1.0\\\",\\\"configurationId\\\":\\\"ZDc1N2ZmMDQtMjI1Ni00Yjc0LTgyZDctMmM2MTEyYjY3ZTQ5\\\",\\\"bucket\\\":{\\\"name\\\":\\\"lowcostserverlessragsqlitestack-rag927e70e8-ikoruxkyvrqk\\\",\\\"ownerIdentity\\\":{\\\"principalId\\\":\\\"A3AW3JZNWOKG7K\\\"},\\\"arn\\\":\\\"arn:aws:s3:::lowcostserverlessragsqlitestack-rag927e70e8-ikoruxkyvrqk\\\"},\\\"object\\\":{\\\"key\\\":\\\"input/hello.txt\\\",\\\"size\\\":94,\\\"eTag\\\":\\\"b60504e10f249586896b819e22de8f1b\\\",\\\"sequencer\\\":\\\"0066FA9BD3F9E5EA77\\\"}}}]}\", \"attributes\": {\"ApproximateReceiveCount\": \"1\", \"SentTimestamp\": \"1727699925117\", \"SenderId\": \"AROAXYCRW4AK7Q4NSCWWZ:S3-PROD-END\", \"ApproximateFirstReceiveTimestamp\": \"1727699925122\"}, \"messageAttributes\": {}, \"md5OfBody\": \"a5a3a37f924530ecafe4f1f2f437ad78\", \"eventSource\": \"aws:sqs\", \"eventSourceARN\": \"arn:aws:sqs:eu-central-1:123456789012:LowCostServerlessRAGSQLiteStack-S3Queue0CC1F6BF-XZ8yhDxqLzoO\", \"awsRegion\": \"eu-central-1\"}]}",
+            "attributes": {
+                "ApproximateReceiveCount": "1",
+                "AWSTraceHeader": "Root=1-66fa9bd5-a37d96c8c2522ee0e1c05a27;Parent=2c42cf073c717263;Sampled=0;Lineage=1:8f1dd5b8:0",
+                "SentTimestamp": "1727699927702",
+                "SequenceNumber": "18889035255201263616",
+                "MessageGroupId": "SINGLETON",
+                "SenderId": "AROAV6EQBZPBOUO36QHY4:LowCostServerlessRAGSQLit-RAGImportQueueFiller8615-NlCKIK2dSVo1",
+                "MessageDeduplicationId": "dde73f86-6f8e-5929-a35b-60f2f18b92f7",
+                "ApproximateFirstReceiveTimestamp": "1727699927702"
+            },
+            "messageAttributes": {},
+            "md5OfBody": "5408690ba2fa5159a914e250c18176b9",
+            "eventSource": "aws:sqs",
+            "eventSourceARN": "arn:aws:sqs:eu-central-1:123456789012:LowCostServerlessRAGSQLiteStack-LambdaQueueD7E70B75-VKrcE2kMa7pB.fifo",
+            "awsRegion": "eu-central-1"
+        }
+    ]
+}

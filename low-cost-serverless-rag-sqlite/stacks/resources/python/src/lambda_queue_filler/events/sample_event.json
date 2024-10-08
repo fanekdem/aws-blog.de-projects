@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "messageId": "ef1008f4-6026-456f-846e-e3e3edd89933",
+            "receiptHandle": "AQEB4DMQJNVa51l9QKtWjaxbEOEQxIUJd4ASxNn1YxbYjL1Mh3VZus7hvSf526iiO3SGqfmJ9wvuR/NNmoPv7py9oCQWvH0xUTvQJh0uLtkB0mlJrUNiPY3417HpLb2WuNLUlEzkEa8dZY97x88u3XxZgrQCWcQ7AL7uh52IpWzvnDlyA2ojXlfHdKFDaN/TO3VLP/GCO8fVM8NJrmEmBIE35DsRfOCFxdOTa+sLZblzgEgN0ADze4JWR7kjFNaZow+UvloPmwQ549XwGGCu75nhTSprnpQIfemN0jdCPgRSuuPfqNkEpF+Rgp/Krh+33lBRWmvRox9IEVoPSBEdzmMymecXHtQbXcfS+wN+DRuAzt3Yas76so/McL13KPZ3zPPdwWw3x9neZZ8Lay34UAc4l7ZXDbREctkqFc3iBtYAizO6RMQKiOloS4EZJXmqsUQj6wdZnhIKWikH+7vUMBjjuw==",
+            "body": "{\"Records\":[{\"eventVersion\":\"2.1\",\"eventSource\":\"aws:s3\",\"awsRegion\":\"eu-central-1\",\"eventTime\":\"2024-09-10T13:19:04.326Z\",\"eventName\":\"ObjectCreated:Put\",\"userIdentity\":{\"principalId\":\"AWS:AIDAV6EQBZPBNRCANK4KJ\"},\"requestParameters\":{\"sourceIPAddress\":\"193.218.214.132\"},\"responseElements\":{\"x-amz-request-id\":\"N2B7TWQY1DN4RC6M\",\"x-amz-id-2\":\"V+HNfzfoJIXLMpMaST8DpI3ZPtutfpoRskh5ewkfJzfHmWB8+Q1JQk07si8FID1N5u5S9KX/gHWsV9OmAYWq1ZPgB6G5TXNGzJHtK+756D8=\"},\"s3\":{\"s3SchemaVersion\":\"1.0\",\"configurationId\":\"ZDc1N2ZmMDQtMjI1Ni00Yjc0LTgyZDctMmM2MTEyYjY3ZTQ5\",\"bucket\":{\"name\":\"lowcostserverlessragsqlitestack-rag927e70e8-ikoruxkyvrqk\",\"ownerIdentity\":{\"principalId\":\"A3AW3JZNWOKG7K\"},\"arn\":\"arn:aws:s3:::lowcostserverlessragsqlitestack-rag927e70e8-ikoruxkyvrqk\"},\"object\":{\"key\":\"input/hello.txt\",\"size\":94,\"eTag\":\"b60504e10f249586896b819e22de8f1b\",\"sequencer\":\"0066E047484CC1601B\"}}}]}",
+            "attributes": {
+                "ApproximateReceiveCount": "1",
+                "SentTimestamp": "1725974344932",
+                "SenderId": "AROAXYCRW4AK7Q4NSCWWZ:S3-PROD-END",
+                "ApproximateFirstReceiveTimestamp": "1725974344941"
+            },
+            "messageAttributes": {},
+            "md5OfBody": "b07ca73caf86fc862b20f638b9d8955f",
+            "eventSource": "aws:sqs",
+            "eventSourceARN": "arn:aws:sqs:eu-central-1:123456789012:LowCostServerlessRAGSQLiteStack-S3Queue0CC1F6BF-XZ8yhDxqLzoO",
+            "awsRegion": "eu-central-1"
+        }
+    ]
+}
