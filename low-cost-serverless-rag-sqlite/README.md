@@ -1,8 +1,8 @@
 # Low-cost serverless RAG
 ![Image](img/low-cost-rag-architecture.png)
 
-This folder contain IaC to create a low-cost serverless RAG solution based on Athena, Lambda, S3 and Bedrock.
-More information about the solution is available [in this blog article](https://www.tecracer.com/blog/2024/08/building-a-low-cost-serverless-retrieval-augmented-generation-rag-solution.html).
+This folder contains IaC to create a low-cost serverless RAG solution based on SQLite, SQLite-vss, Lambda, S3 and Bedrock.
+More information about the solution is available [in this blog article](https://www.tecracer.com/blog/2024/08/embedded-embeddings-database-building-a-low-cost-serverless-rag-solution.html).
 
 
 The project assumes [Python3](https://www.python.org/downloads/) is available with [pip](https://pip.pypa.io/en/stable/installation/) as well as the [AWS CDK Toolkit](https://www.npmjs.com/package/aws-cdk).
@@ -38,8 +38,8 @@ cdk deploy
 The output contains the S3 import folder where documents should be uploaded to be added to the knowledge database as well as the name of the Lambda function to query the RAG system.
 ```bash
 Outputs:
-LowCostServerlessRAGStack.DocumentImportFolder = s3://lowcostserverlessragstack-rag70e8-pr5zms/input/
-LowCostServerlessRAGStack.LambdaQueryName = LowCostServerlessRAGStack-RAGDocumentQuery415C-MUeyZye
+LowCostServerlessRAGSQLiteStack.DocumentImportFolder = s3://lowcostserverlessragsqlitestack-rag70e8-pr5zms/input/
+LowCostServerlessRAGSQLiteStack.LambdaQueryName = LowCostServerlessRAGSQLit-RAGDocumentQuery415C6106-MUeyZye
 ```
 
 

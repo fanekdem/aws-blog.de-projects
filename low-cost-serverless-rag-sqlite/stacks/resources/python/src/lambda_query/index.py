@@ -11,7 +11,7 @@ sys.path.append(src_dir_path)
 from common.config import MAX_TOKEN_OUTPUT, AWS_REGION_BEDROCK
 from common.db import (
     initialize_db,
-    query_db,
+    query_db_documents,
 )
 from common.helpers import (
     get_cleaned_text,
@@ -31,10 +31,6 @@ SQLITE_DB_S3_BUCKET = os.getenv("SQLITE_DB_S3_BUCKET")
 SQLITE_DB_S3_KEY = os.getenv("SQLITE_DB_S3_KEY")
 
 
-LOCAL_DB_URI = get_s3_file_locally(SQLITE_DB_S3_BUCKET, SQLITE_DB_S3_KEY)
-DB_CONNECTION = initialize_db(LOCAL_DB_URI)
-
-
 def log_time(function):
     def logging_time_function(*args, **kwargs):
         start = time.time()
@@ -43,10 +39,14 @@ def log_time(function):
         time_ms = int((end - start) * 1000)
         print("*" * 40, "START", f"<{function.__name__}>", "*" * 40)
         print(f"Timed {time_ms} ms for function <{function.__name__}>")
-        print("*" * 45, "END", "*" * 45)
+        print("*" * 40, " END ", "*" * 40)
         return result
 
     return logging_time_function
+
+
+LOCAL_DB_URI = log_time(get_s3_file_locally)(SQLITE_DB_S3_BUCKET, SQLITE_DB_S3_KEY)
+DB_CONNECTION = log_time(initialize_db)(LOCAL_DB_URI)
 
 
 SupportsWrite = object
@@ -95,7 +95,7 @@ def lambda_handler(event: dict[str, object], context: dict[str, object]):
 
     embedding = log_time(get_embedding)(query)
 
-    matching_documents = log_time(query_db)(
+    matching_documents = log_time(query_db_documents)(
         embedding=embedding,
         connection=DB_CONNECTION,
         top_n_documents=TOP_N_DOCUMENTS,
@@ -121,7 +121,7 @@ def lambda_handler(event: dict[str, object], context: dict[str, object]):
 
 if __name__ == "__main__":
     # lambda_handler({"query": "Tell me the story of the ugly prince."}, None)
-    res = query_db(
+    res = query_db_documents(
         embedding=[0.1] * 1536,
         connection=DB_CONNECTION,
         top_n_documents=TOP_N_DOCUMENTS,

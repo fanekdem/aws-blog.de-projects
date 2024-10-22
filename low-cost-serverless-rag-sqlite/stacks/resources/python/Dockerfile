@@ -29,7 +29,7 @@ WORKDIR ${FUNCTION_DIR}
 COPY --from=build-image ${FUNCTION_DIR} ${FUNCTION_DIR}
 
 # ### Customization start ###
-# Install sqlite-vss dependncies
+# Install sqlite-vss dependencies
 RUN apt update && apt install libgomp1 libatlas3-base -y
 
 # Copy python requirements file

@@ -30,7 +30,8 @@ INSERT INTO vss_documents(rowid, text_embedding)
 VALUES(:rowid, :text_embedding)
 """
 
-SQL_QUERY_TEMPLATE_PRIOR_TO_V3_41_0 = """
+
+SQL_QUERY_DOCUMENTS_TEMPLATE = """
 WITH matched_documents (rowid, distance) AS (
     SELECT
         rowid,
@@ -45,29 +46,6 @@ WITH matched_documents (rowid, distance) AS (
             )
         )
     ORDER BY distance ASC
-)
-
-SELECT
-    d.*,
-    m.distance
-FROM matched_documents m
-LEFT JOIN documents d ON m.rowid=d.rowid
-WHERE
-    m.distance <= {distance_threshold}
-ORDER BY m.distance ASC
-"""
-
-
-SQL_QUERY_TEMPLATE_STARTING_FROM_V3_41_0 = """
-WITH matched_documents AS (
-    SELECT
-        rowid,
-        distance
-    FROM vss_documents
-    WHERE
-        vss_search(text_embedding, ?)
-    ORDER BY distance ASC
-    LIMIT {top_n_documents}
 )
 
 SELECT
@@ -110,7 +88,7 @@ def get_serialized_embedding(embedding: list[float] | np.ndarray) -> str:
     return json.dumps(embedding)
 
 
-def _query_db_sqlite_prior_to_v3_41_0(
+def query_db_documents(
     embedding: list[float] | np.ndarray,
     connection: sqlite3.Connection,
     top_n_documents: int = TOP_N_DOCUMENTS,
@@ -120,9 +98,7 @@ def _query_db_sqlite_prior_to_v3_41_0(
 
     SQL_QUERY_VSS_DOCUMENTS_COUNT = """SELECT count(*) FROM vss_documents"""
 
-    query = SQL_QUERY_TEMPLATE_STARTING_FROM_V3_41_0.format(
-        top_n_documents=top_n_documents, distance_threshold=distance_threshold
-    )
+    query = SQL_QUERY_DOCUMENTS_TEMPLATE.format(top_n_documents=top_n_documents, distance_threshold=distance_threshold)
 
     cursor: sqlite3.Cursor = connection.cursor()
     cursor.row_factory = sqlite3.Row
@@ -137,47 +113,6 @@ def _query_db_sqlite_prior_to_v3_41_0(
         result_rows = cursor.execute(query, [serialized_embedding])
         result = [dict(item) for item in result_rows]
     return result
-
-
-def _query_db_sqlite_starting_from_v3_41_0(
-    embedding: list[float] | np.ndarray,
-    connection: sqlite3.Connection,
-    top_n_documents: int = TOP_N_DOCUMENTS,
-    distance_threshold: float = MAX_DISTANCE_THRESHOLD,
-) -> list[dict]:
-    serialized_embedding = get_serialized_embedding(embedding)
-
-    query = SQL_QUERY_TEMPLATE_STARTING_FROM_V3_41_0.format(
-        top_n_documents=top_n_documents, distance_threshold=distance_threshold
-    )
-
-    cursor: sqlite3.Cursor = connection.cursor()
-    cursor.row_factory = sqlite3.Row
-    result_rows = cursor.execute(query, [serialized_embedding])
-    result = [dict(item) for item in result_rows]
-    return result
-
-
-def query_db(
-    embedding: list[float] | np.ndarray,
-    connection: sqlite3.Connection,
-    top_n_documents: int = TOP_N_DOCUMENTS,
-    distance_threshold: float = MAX_DISTANCE_THRESHOLD,
-) -> list[dict]:
-    if SQLITE_VERSION_TUPLE < (3, 41, 0):
-        return _query_db_sqlite_prior_to_v3_41_0(
-            embedding=embedding,
-            connection=connection,
-            top_n_documents=top_n_documents,
-            distance_threshold=distance_threshold,
-        )
-    else:
-        return _query_db_sqlite_starting_from_v3_41_0(
-            embedding=embedding,
-            connection=connection,
-            top_n_documents=top_n_documents,
-            distance_threshold=distance_threshold,
-        )
 
 
 def save_document_into_db(
@@ -221,5 +156,5 @@ if __name__ == "__main__":
     db = initialize_db("./db.sqlite3")
 
     # res = save_documents_to_db([{"text": "Hello!", "embedding": EMBEDDING_SAMPLE}], connection=db)
-    res = query_db(embedding=EMBEDDING_SAMPLE_TEST, connection=db)
+    res = query_db_documents(embedding=EMBEDDING_SAMPLE_TEST, connection=db)
     print(res)
